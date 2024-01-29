@@ -10,5 +10,8 @@ public class Main {
         Addressbookservice a1=new Addressbookservice();
         a1.addPerson(p1);
         System.out.println(a1);
+        a1.editPerson();
+        System.out.println(a1);
+
     }
 }

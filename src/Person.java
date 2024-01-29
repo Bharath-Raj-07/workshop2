@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Person {
     String firstname;
-    String lastnamne;
+    String lastname;
     String city;
     String state;
     String email;
@@ -12,7 +12,7 @@ public class Person {
         System.out.println("Enter First Name");
         this.firstname=sc.next();
         System.out.println("Enter Last Name");
-        this.lastnamne=sc.next();
+        this.lastname=sc.next();
         System.out.println("Enter City");
         this.city=sc.next();
         System.out.println("Enter State");
@@ -27,7 +27,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "firstname='" + firstname + '\'' +
-                ", lastnamne='" + lastnamne + '\'' +
+                ", lastnamne='" + lastname + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", email='" + email + '\'' +
