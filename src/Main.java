@@ -7,5 +7,8 @@ public class Main {
         System.out.println("Welcome to Address Book");
         Person p1 = new Person();
         System.out.println(p1);
+        Addressbookservice a1=new Addressbookservice();
+        a1.addPerson(p1);
+        System.out.println(a1);
     }
 }
