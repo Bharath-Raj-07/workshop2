@@ -30,6 +30,17 @@ public class Addressbookservice {
            }
        }
     }
+    public void deletePerson(){
+        System.out.println("Enter name to delete contact");
+        String name=sc.next();
+        for(int i=0;i<book.size();i++){
+            if(Objects.equals(book.get(i).firstname, name))
+            {
+                book.remove(i);
+                break;
+            }
+        }
+    }
 
     @Override
     public String toString() {

@@ -12,6 +12,7 @@ public class Main {
         System.out.println(a1);
         a1.editPerson();
         System.out.println(a1);
-
+        a1.deletePerson();
+        System.out.println(a1);
     }
 }
