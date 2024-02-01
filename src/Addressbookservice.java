@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -5,13 +7,16 @@ import java.util.Scanner;
 public class Addressbookservice {
     ArrayList<Person> book = new ArrayList<>();
     Scanner sc=new Scanner(System.in);
-    public void addPerson(Person p1){
+    public void addPerson(Addressbookservice addressbookservice)
+    {
+        Person p1 = new Person();
         book.add(p1);
+        System.out.println(addressbookservice);
     }
     public void editPerson(){
         System.out.println("Enter name to edit contact");
         String name=sc.next();
-       for(int i=0;i<book.size();i++){
+       for(int i=0;i<book.size();i++){ 
            if(Objects.equals(book.get(i).firstname, name))
            {
                System.out.println("Current First Name = ["+book.get(i).firstname+"] Enter New First Name");
@@ -28,6 +33,8 @@ public class Addressbookservice {
                book.get(i).phone=sc.next();
                break;
            }
+           else
+               System.out.println("No such name found in Address Book");
        }
     }
     public void deletePerson(){
@@ -39,9 +46,10 @@ public class Addressbookservice {
                 book.remove(i);
                 break;
             }
+            else
+                System.out.println("No such name found in Address Book");
         }
     }
-
     @Override
     public String toString() {
         return "Addressbookservice{" +
