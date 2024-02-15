@@ -5,44 +5,31 @@ public class Person {
     private String lastname;
     private String city;
     private String state;
+    private String zipcode;
     private String email;
     private String phone;
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public String getFirstname() { return firstname; }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+    public void setFirstname(String firstname) { this.firstname = firstname; }
 
-    public String getLastname() {
-        return lastname;
-    }
+    public String getLastname() { return lastname; }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+    public void setLastname(String lastname) { this.lastname = lastname; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getState() {
-        return state;
-    }
+    public String getState() { return state; }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+    public void setState(String state) { this.state = state; }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getZipcode() { return zipcode; }
+
+    public void setZipcode(String zipcode) { this.zipcode = zipcode; }
+
+    public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
 
@@ -50,12 +37,11 @@ public class Person {
 
     public void setPhone(String phone) { this.phone = phone; }
 
-
     @Override
     public String toString() {
         return "Person{" +
                 "firstname='" + firstname + '\'' +
-                ", lastnamne='" + lastname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", email='" + email + '\'' +

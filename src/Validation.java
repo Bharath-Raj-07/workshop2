@@ -5,13 +5,13 @@ public class Validation {
     Scanner sc = new Scanner(System.in);
     public void firstname(Person p){
         System.out.println("Enter your First Name :");
-        for(;;){
-            String temp = sc.next();
+        boolean flagFname=false;
+        while(flagFname == false){
+            String tempFname = sc.next();
             Pattern regex = Pattern.compile("^[A-Z]{1}[a-z]{1}[a-z]+$");
-            Matcher match = regex.matcher(temp);
+            Matcher match = regex.matcher(tempFname);
             if (match.matches()) {
-                p.setFirstname(temp);
-                System.out.println("First Name = "+p.getFirstname());break;
+                p.setFirstname(tempFname);flagFname = true;
             } else{
                 System.out.println("Enter Valid First Name :");
             }
@@ -19,13 +19,13 @@ public class Validation {
     }
     public void lastname(Person p){
         System.out.println("Enter your Last Name :");
-        for(;;){
-            String temp = sc.next();
+        boolean flagLname=false;
+        while(flagLname == false){
+            String tempLane = sc.next();
             Pattern regex = Pattern.compile("^[A-Z]{1}[a-z]{1}[a-z]+$");
-            Matcher match = regex.matcher(temp);
+            Matcher match = regex.matcher(tempLane);
             if (match.matches()) {
-                p.setLastname(temp);
-                System.out.println("Last Name = "+p.getLastname());break;
+                p.setLastname(tempLane);flagLname = true;
             } else{
                 System.out.println("Enter Valid Last Name :");
             }
@@ -33,13 +33,13 @@ public class Validation {
     }
     public void city(Person p){
         System.out.println("Enter the City Name :");
-        for(;;){
-            String temp = sc.next();
+        boolean flagcity=false;
+        while(flagcity == false){
+            String tempcity = sc.next();
             Pattern regex = Pattern.compile("^[A-Z]{1}[a-z]{1}[a-z]+$");
-            Matcher match = regex.matcher(temp);
+            Matcher match = regex.matcher(tempcity);
             if (match.matches()) {
-                p.setCity(temp);
-                System.out.println("City = "+p.getCity());break;
+                p.setCity(tempcity);flagcity = true;
             } else{
                 System.out.println("Enter Valid City Name :");
             }
@@ -47,41 +47,56 @@ public class Validation {
     }
     public void state(Person p){
         System.out.println("Enter the State Name :");
-        for(;;){
-            String temp = sc.next();
+        boolean flagState=false;
+        while(flagState == false){
+            String tempState = sc.next();
             Pattern regex = Pattern.compile("^[A-Z]{1}[a-z]{1}[a-z]+$");
-            Matcher match = regex.matcher(temp);
+            Matcher match = regex.matcher(tempState);
             if (match.matches()) {
-                p.setState(temp);
-                System.out.println("State = "+p.getState());break;
+                p.setState(tempState);flagState = true;
             } else{
                 System.out.println("Enter Valid State Name :");
             }
         }
     }
+    public void zipcode(Person p){
+        System.out.println("Enter ZipCode");
+        boolean flagZipCode=false;
+        while(flagZipCode==false){
+            String tempzipcode = sc.next();
+            Pattern regex = Pattern.compile("^[0-9]{6}$");
+            Matcher match = regex.matcher(tempzipcode);
+            if (match.matches()) {
+                p.setEmail(tempzipcode);flagZipCode = true;
+            } else{
+                System.out.println("Enter Valid Zip Code : ");
+            }
+
+        }
+    }
     public void email(Person p){
         System.out.println("Enter your Mail ID :");
-        for(;;) {
-            String temp = sc.next();
+        boolean flagEmail=false;
+        while(flagEmail == false) {
+            String tempEmail = sc.next();
             Pattern regex = Pattern.compile("^[a-z]+@[a-z]+(\\.[a-z]{2,})+$");
-            Matcher match = regex.matcher(temp);
+            Matcher match = regex.matcher(tempEmail);
             if (match.matches()) {
-                p.setEmail(temp);
-                System.out.println("Email ID = "+p.getEmail());break;
+                p.setEmail(tempEmail);flagEmail = true;
             } else{
-                System.out.println("Enter Valid Email ID :");
+                System.out.println("Enter Valid Email ID : ");
             }
         }
     }
     public void phone(Person p){
         System.out.println("Enter your Phone Number : ");
-        for(;;){
-            String temp = sc.next();
-            Pattern regex = Pattern.compile("^[+]{1}[0-9]{2} [6-9]{1}[0-9]{9}$");
-            Matcher match = regex.matcher(temp);
+        boolean flagNum=false;
+        while(flagNum == false){
+            String tempNum = sc.next();
+            Pattern regex = Pattern.compile("^[6-9]{1}[0-9]{9}+$");
+            Matcher match = regex.matcher(tempNum);
             if (match.matches()) {
-                p.setPhone(temp);
-                System.out.println("Phone Number = "+p.getPhone());break;
+                p.setPhone(tempNum);flagNum = true;
             } else{
                 System.out.println("Enter Valid Phone Number : ");
             }
