@@ -9,7 +9,7 @@ public class BookService{
     public void addPerson()
     {
         Person p = new Person();
-        validate.firstname(p);
+        validate.firstname(p, this);
         validate.lastname(p);
         validate.city(p);
         validate.state(p);
@@ -18,7 +18,6 @@ public class BookService{
         validate.phone(p);
         book.add(p);
         System.out.println("Contact added Successfully !!! ");
-
     }
     public void editPerson(){
         System.out.println("Enter name to edit contact");
@@ -27,20 +26,22 @@ public class BookService{
             if (Objects.equals(person.getFirstname(), name)) {
                 int entry;
                 do {
-                    System.out.println("Entered Edit Mode !!! \n" +
-                            "1)Edit Firstname \n" +
-                            "2)Edit Lastname \n" +
-                            "3)Edit City \n" +
-                            "4)Edit State \n" +
-                            "5)Edit Zip Code \n" +
-                            "6)Edit Email \n" +
-                            "7)Edit Phone Number \n" +
-                            "0)Exit Edit Mode \n");
+                    System.out.println("""
+                            Entered Edit Mode !!!\s
+                            1)Edit Firstname\s
+                            2)Edit Lastname\s
+                            3)Edit City\s
+                            4)Edit State\s
+                            5)Edit Zip Code\s
+                            6)Edit Email\s
+                            7)Edit Phone Number\s
+                            0)Exit Edit Mode\s
+                            """);
                     entry = sc.nextInt();
                     switch (entry) {
                         case 1:
                             System.out.println("Current First Name = [" + person.getFirstname() + "] Enter New First Name");
-                            validate.firstname(person);break;
+                            validate.firstname(person,this);break;
                         case 2:
                             System.out.println("Current Last Name = [" + person.getLastname() + "] Enter New Last Name");
                             validate.lastname(person);break;

@@ -2,9 +2,13 @@ import java.util.HashMap;
 public class BookManager {
     HashMap<String, BookService> addressbook = new HashMap<String, BookService>();
     BookService addBook(String bookname){
-        BookService book =new BookService();
-        addressbook.put(bookname, book);
-        return book;
+        if(!addressbook.containsKey(bookname)){
+            BookService book =new BookService();
+            addressbook.put(bookname, book);
+            return book;
+        }
+        else
+            throw new RuntimeException("Book Already Exists !!");
     }
     void deleteBook(String bookName){
         if(addressbook.get(bookName) != null)
@@ -33,7 +37,7 @@ public class BookManager {
     }
     @Override
     public String toString() {
-        return "Addressbook=" + addressbook +
+        return "AddressBook=" + addressbook +
                 '}';
     }
 }
