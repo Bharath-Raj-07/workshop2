@@ -37,14 +37,18 @@ public class BookManager {
         }
     }
     void searchCity(String searchCity){
-        for(BookService value : addressBook.values()){
-            value.searchCity(searchCity);
-        }
+        List<Person> sameCity = addressBook.values().stream()
+                .flatMap(addressBook->addressBook.book.stream())
+                .filter(s -> s.getCity().equalsIgnoreCase(searchCity))
+                .toList();
+        System.out.println(sameCity);
     }
     void searchState(String searchState){
-        for(BookService value : addressBook.values()){
-            value.searchState(searchState);
-        }
+        List<Person> sameState = addressBook.values().stream()
+                .flatMap(addressBook->addressBook.book.stream())
+                .filter(s -> s.getState().equalsIgnoreCase(searchState))
+                .toList();
+        System.out.println(sameState);
     }
     @Override
     public String toString() {

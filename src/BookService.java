@@ -88,16 +88,6 @@ public class BookService{
     public void display(){
         System.out.println(book);
     }
-    void searchCity(String city){
-        book.stream()
-                .filter(c-> c.getCity().equalsIgnoreCase(city))
-                .forEach(System.out::println);
-    }
-    void searchState(String state){
-        book.stream()
-                .filter(s -> s.getState().equalsIgnoreCase(state))
-                .forEach(System.out::println);
-    }
     @Override
     public String toString() {
         return "Book=" + book +
