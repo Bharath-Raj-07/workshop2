@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -78,11 +77,10 @@ public class Validation {
             Pattern regex = Pattern.compile("^[0-9]{6}$");
             Matcher match = regex.matcher(tempZipCode);
             if (match.matches()) {
-                p.setEmail(tempZipCode);flagZipCode = true;
+                p.setZipcode(tempZipCode);flagZipCode = true;
             } else{
                 System.out.println("Enter Valid Zip Code : ");
             }
-
         }
     }
     public void email(Person p){

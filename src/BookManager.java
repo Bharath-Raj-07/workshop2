@@ -1,19 +1,22 @@
 import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 public class BookManager {
-    HashMap<String, BookService> addressbook = new HashMap<String, BookService>();
-    BookService addBook(String bookname){
-        if(!addressbook.containsKey(bookname)){
+    HashMap<String, BookService> addressBook = new HashMap<String, BookService>();
+    void addBook(String bookName){
+        if(!addressBook.containsKey(bookName)){
             BookService book =new BookService();
-            addressbook.put(bookname, book);
-            return book;
+            addressBook.put(bookName, book);
         }
         else
             throw new RuntimeException("Book Already Exists !!");
     }
     void deleteBook(String bookName){
-        if(addressbook.get(bookName) != null)
+        if(addressBook.get(bookName) != null)
         {
-            addressbook.remove(bookName);
+            addressBook.remove(bookName);
             System.out.println("Removed Book Successfully");
         }
         else{
@@ -21,13 +24,11 @@ public class BookManager {
         }
     }
     void display(){
-        System.out.println(addressbook.keySet());
+        System.out.println(addressBook.keySet());
     }
 
     public BookService openBook(String bookName) {
-        // Search bookName in Hashmap
-        //Return the book
-        BookService book = addressbook.get(bookName);
+        BookService book = addressBook.get(bookName);
         if(book!=null){
             return book;
         }
@@ -35,9 +36,19 @@ public class BookManager {
             throw new RuntimeException("Book doesn't exist");
         }
     }
+    void searchCity(String searchCity){
+        for(BookService value : addressBook.values()){
+            value.searchCity(searchCity);
+        }
+    }
+    void searchState(String searchState){
+        for(BookService value : addressBook.values()){
+            value.searchState(searchState);
+        }
+    }
     @Override
     public String toString() {
-        return "AddressBook=" + addressbook +
+        return "AddressBook=" + addressBook +
                 '}';
     }
 }

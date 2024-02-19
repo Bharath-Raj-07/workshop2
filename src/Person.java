@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Person {
     private String firstname;
     private String lastname;

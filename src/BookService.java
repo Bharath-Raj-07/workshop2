@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class BookService{
+    ArrayList<Person> State = new ArrayList<>();
     Validation validate =new Validation();
     ArrayList<Person> book = new ArrayList<>();
     Scanner sc=new Scanner(System.in);
@@ -84,6 +87,16 @@ public class BookService{
     }
     public void display(){
         System.out.println(book);
+    }
+    void searchCity(String city){
+        book.stream()
+                .filter(c-> c.getCity().equalsIgnoreCase(city))
+                .forEach(System.out::println);
+    }
+    void searchState(String state){
+        book.stream()
+                .filter(s -> s.getState().equalsIgnoreCase(state))
+                .forEach(System.out::println);
     }
     @Override
     public String toString() {

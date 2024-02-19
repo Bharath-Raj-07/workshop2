@@ -1,8 +1,5 @@
-import java.util.Objects;
 import java.util.Scanner;
-
 public class Menu {
-
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         BookManager books = new BookManager();
@@ -14,10 +11,12 @@ public class Menu {
                     1)Create a New Book\s
                     2)Open Existing Book\s
                     3)Delete a Book\s
+                    4)Search by City\s
+                    5)Search by State\s
                     0)Exit Book\s
                     """);
             entry = sc.nextInt();
-            String bookName = "";
+            String bookName;
             switch (entry) {
                 case 1:
                     System.out.println("Enter Book name : ");
@@ -30,12 +29,10 @@ public class Menu {
                         System.out.println("The Book Already Exists !!! \n");
                     }break;
                 case 2:
-                    if (Objects.equals(bookName, "")){
-                        System.out.println("Current books in the AddressBook : \n");
-                        books.display();
-                        System.out.println("Enter Book name : ");
-                        bookName = sc.next();
-                    }
+                    System.out.println("Current books in the AddressBook : \n");
+                    books.display();
+                    System.out.println("Enter Book name : ");
+                    bookName = sc.next();
                     try {
                         currentBook = books.openBook(bookName);
                         bookMenu(bookName, currentBook);
@@ -47,12 +44,19 @@ public class Menu {
                     System.out.println("Enter the Name of Book to be deleted ");
                     books.deleteBook(sc.next());
                     break;
+                case 4:
+                    System.out.println("Enter City name to search for Persons");
+                    books.searchCity(sc.next());
+                    break;
+                case 5:
+                    System.out.println("Enter State name to Search for Persons");
+                    books.searchState(sc.next());
+
                 case 0:break;
                 default:
                     System.out.println("Invalid Input");break;
             }
         }
-
     }
     public static void bookMenu(String bookName, BookService book){
         Scanner sc=new Scanner(System.in);
@@ -60,22 +64,23 @@ public class Menu {
         int entry;
         do {
             System.out.println("Enter command \n" +
-                    "1)List all Contacts \n" +
-                    "2)Add Contact of a Person \n" +
+                    "1)Add contact of a Person \n" +
+                    "2)List all Contacts \n" +
                     "3)Edit Contact of a Person  \n" +
                     "4)Delete Contact of a Person \n" +
                     "0)Exit " + bookName + " Book \n" );
             entry = sc.nextInt();
             switch (entry) {
                 case 1:
-                    book.display();break;
-                case 2:
                     book.addPerson(); System.out.println(book); break;
+                case 2:
+                     book.display(); break;
                 case 3:
                     book.editPerson(); System.out.println(book); break;
                 case 4:
                     book.deletePerson(); System.out.println(book); break;
-                case 0:break;
+                case 0:
+                    break;
                 default:
                     System.out.println("Invalid Input"); break;
             }
